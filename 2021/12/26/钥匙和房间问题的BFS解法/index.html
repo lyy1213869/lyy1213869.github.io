@@ -20,17 +20,20 @@
     var CONFIG = {"hostname":"www.qinghuai.xyz","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://www.qinghuai.xyz/tags/index.html">
+  <meta name="description" content="钥匙和房间问题的BFS解法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="钥匙和房间问题的BFS解法">
+<meta property="og:url" content="http://www.qinghuai.xyz/2021/12/26/%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4%E9%97%AE%E9%A2%98%E7%9A%84BFS%E8%A7%A3%E6%B3%95/index.html">
 <meta property="og:site_name" content="LY&#39;s Blog">
+<meta property="og:description" content="钥匙和房间问题的BFS解法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-20T06:52:49.000Z">
-<meta property="article:modified_time" content="2021-12-20T06:53:22.196Z">
+<meta property="article:published_time" content="2021-12-25T23:55:05.000Z">
+<meta property="article:modified_time" content="2021-12-25T23:57:09.314Z">
 <meta property="article:author" content="LY">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.qinghuai.xyz/tags/">
+<link rel="canonical" href="http://www.qinghuai.xyz/2021/12/26/%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4%E9%97%AE%E9%A2%98%E7%9A%84BFS%E8%A7%A3%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -38,13 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签 | LY's Blog
-</title>
+  <title>钥匙和房间问题的BFS解法 | LY's Blog</title>
   
 
 
@@ -174,51 +176,102 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
-
-<div class="post-meta">
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.qinghuai.xyz/2021/12/26/%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4%E9%97%AE%E9%A2%98%E7%9A%84BFS%E8%A7%A3%E6%B3%95/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LY">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LY's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          钥匙和房间问题的BFS解法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-26 07:55:05 / 修改时间：07:57:09" itemprop="dateCreated datePublished" datetime="2021-12-26T07:55:05+08:00">2021-12-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>钥匙和房间问题的BFS解法</p>
+<span id="more"></span>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span>(<span class="params">self, grid: <span class="built_in">list</span>[<span class="built_in">list</span>[(<span class="params"><span class="built_in">str</span></span>)]]</span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">        nr = <span class="built_in">len</span>(grid)</span><br><span class="line">        <span class="keyword">if</span> nr == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        nc = <span class="built_in">len</span>(grid[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">        num_islands = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(nr):</span><br><span class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(nc):</span><br><span class="line">                <span class="keyword">if</span> grid[r][c] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                    num_islands += <span class="number">1</span></span><br><span class="line">                    grid[r][c] = <span class="string">&quot;0&quot;</span></span><br><span class="line">                    </span><br><span class="line">                    <span class="string">&#x27;&#x27;&#x27; BFS &#x27;&#x27;&#x27;</span></span><br><span class="line">                    neighbors = collections.deque([(r, c)])</span><br><span class="line">                    <span class="keyword">while</span> neighbors:</span><br><span class="line">                        row, col = neighbors.popleft()</span><br><span class="line">                        <span class="keyword">for</span> x, y <span class="keyword">in</span> [(row - <span class="number">1</span>, col), (row + <span class="number">1</span>, col), (row, col - <span class="number">1</span>), (row, col + <span class="number">1</span>)]:</span><br><span class="line">                            <span class="keyword">if</span> <span class="number">0</span> &lt;= x &lt;= nr <span class="keyword">and</span> <span class="number">0</span> &lt;= y &lt;= nc <span class="keyword">and</span> grid[x][y] == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">                                neighbors.append((x, y))</span><br><span class="line">                                grid[x][y] = <span class="string">&quot;0&quot;</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> num_islands</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>LY
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.qinghuai.xyz/2021/12/26/%E9%92%A5%E5%8C%99%E5%92%8C%E6%88%BF%E9%97%B4%E9%97%AE%E9%A2%98%E7%9A%84BFS%E8%A7%A3%E6%B3%95/" title="钥匙和房间问题的BFS解法">http://www.qinghuai.xyz/2021/12/26/钥匙和房间问题的BFS解法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
 </div>
 
-</header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 2 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/%E5%B0%8F%E7%A0%B4%E7%AB%99%E7%9A%84%E6%97%A5%E5%B8%B8/" style="font-size: 12px; color: #ccc">小破站的日常</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12px; color: #ccc">算法</a>
-            </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
           </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
 
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/20/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/" rel="prev" title="记录一下博客的搭建">
+      <i class="fa fa-chevron-left"></i> 记录一下博客的搭建
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
