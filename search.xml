@@ -46,4 +46,22 @@
         <tag>小破站的日常</tag>
       </tags>
   </entry>
+  <entry>
+    <title>广度优先搜索学习笔记</title>
+    <url>/2021/12/25/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>广度优先搜索学习笔记</p>
+<span id="more"></span>
+
+<ul>
+<li><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>  <code>队列</code>是一种<code>先进先出</code>（想象在咖啡店门口排队的人们）的数据结构；队列<strong>只支持</strong>两种操作：出队和入队。</p>
+<p>  <img src="http://tva1.sinaimg.cn/large/007kGQGrly1gxps19pkkdj30l10853zu.jpg"></p>
+<p>  队列将接下来要检查的<code>散列表</code>排好队，并<code>弹出</code>已经检查过的元素。</p>
+</li>
+<li><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>  创建一个<code>队列</code>：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line">search_queue = deque()      <span class="comment"># 创建一个队列</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+]]></content>
+  </entry>
 </search>
